@@ -3198,10 +3198,6 @@ const coordenadas = {
   "lng": -60.00724
   },
   "AMMNSZ8": {
-  "lat": -3.10519,
-  "lng": -60.03086
-  },
-  "AMMNSZ9": {
   "lat": -3.10202,
   "lng": -59.91297
   },
@@ -3998,10 +3994,6 @@ const coordenadas = {
   "lng": -51.049263
   },
   "APMPA02": {
-  "lat": 0.0484,
-  "lng": -51.05211
-  },
-  "APMPA02_001": {
   "lat": 0.051436,
   "lng": -51.049312
   },
@@ -5598,10 +5590,6 @@ const coordenadas = {
   "lng": -48.738334
   },
   "EPA0060": {
-  "lat": -1.298223,
-  "lng": -48.484612
-  },
-  "EPA0061": {
   "lat": -1.456889,
   "lng": -48.5005
   },
@@ -7998,10 +7986,6 @@ const coordenadas = {
   "lng": -44.158799
   },
   "MAPDL20": {
-  "lat": -2.490931,
-  "lng": -44.168267
-  },
-  "MAPDM01": {
   "lat": -3.7,
   "lng": -45.435833
   },
@@ -8798,10 +8782,6 @@ const coordenadas = {
   "lng": -44.288526
   },
   "MASLS33_001": {
-  "lat": -2.501634,
-  "lng": -44.288562
-  },
-  "MASLS34": {
   "lat": -2.49388888888889,
   "lng": -44.2802777777778
   },
@@ -9598,10 +9578,6 @@ const coordenadas = {
   "lng": -44.250868
   },
   "MASLSM4": {
-  "lat": -2.4861,
-  "lng": -44.25232
-  },
-  "MASLSM5": {
   "lat": -2.524409,
   "lng": -44.234639
   },
@@ -11998,10 +11974,6 @@ const coordenadas = {
   "lng": -48.459946
   },
   "PABLM62": {
-  "lat": -1.120793,
-  "lng": -48.428473
-  },
-  "PABLM63": {
   "lat": -1.100556,
   "lng": -48.400833
   },
@@ -12798,10 +12770,6 @@ const coordenadas = {
   "lng": -48.47813
   },
   "PABLMO1": {
-  "lat": -1.426833,
-  "lng": -48.455742
-  },
-  "PABLMO2": {
   "lat": -1.27745,
   "lng": -48.47397
   },
@@ -14398,10 +14366,6 @@ const coordenadas = {
   "lng": -49.23128
   },
   "PAMBA22": {
-  "lat": -5.39368,
-  "lng": -49.079439
-  },
-  "PAMBA23": {
   "lat": -5.388044,
   "lng": -49.147761
   },
@@ -15198,10 +15162,6 @@ const coordenadas = {
   "lng": -50.819222
   },
   "PAPOR02": {
-  "lat": -1.94875,
-  "lng": -50.811528
-  },
-  "PAPPD01": {
   "lat": -1.38954,
   "lng": -48.86915
   },
@@ -17529,6 +17489,7 @@ function gerarAcionamento() {
             '*INFORME DE VANDALISMO STTE*',
             `*NATUREZA DE OCORRÊNCIA:* ${get('natureza')}`,
             `*TÍTULO DA OCORRÊNCIA:* ${get('titulo')}`,
+            `*AMI:* ${get('ami')}`,
             `*SITE:* ${site}`,
             localidade ? `*LOCALIDADE:* ${localidade}` : '',
             endereco ? `*ENDEREÇO:* ${endereco}` : '',
