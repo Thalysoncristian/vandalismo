@@ -1598,10 +1598,6 @@ const coordenadas = {
   "lng": -60.095639
   },
   "AMMNS37_001": {
-  "lat": -3.033367,
-  "lng": -60.08699
-  },
-  "AMMNS38": {
   "lat": -3.12833333333333,
   "lng": -59.9830555555556
   },
@@ -2398,10 +2394,6 @@ const coordenadas = {
   "lng": -60.0042
   },
   "AMMNSDC": {
-  "lat": -3.0649,
-  "lng": -59.9522
-  },
-  "AMMNSDD": {
   "lat": -3.108808812,
   "lng": -59.96753518
   },
@@ -4001,10 +3993,6 @@ const coordenadas = {
   "lat": -0.216389,
   "lng": -51.434167
   },
-  "APMAZ03": {
-  "lat": -0.11389,
-  "lng": -51.28608
-  },
   "APMPA01": {
   "lat": 0.072133,
   "lng": -51.049263
@@ -4798,10 +4786,6 @@ const coordenadas = {
   "lng": -59.979445
   },
   "EAM0015": {
-  "lat": -3.131779,
-  "lng": -60.024834
-  },
-  "EAM0016": {
   "lat": -3.074456,
   "lng": -59.956123
   },
@@ -6398,10 +6382,6 @@ const coordenadas = {
   "lng": -44.5642
   },
   "MABEQ01": {
-  "lat": -2.44845,
-  "lng": -44.78983
-  },
-  "MABEQ02": {
   "lat": -2.52353,
   "lng": -44.73803
   },
@@ -7998,10 +7978,6 @@ const coordenadas = {
   "lng": -44.182
   },
   "MAPDL14": {
-  "lat": -2.470741,
-  "lng": -44.119736
-  },
-  "MAPDL15": {
   "lat": -2.48384,
   "lng": -44.14073
   },
@@ -8798,10 +8774,6 @@ const coordenadas = {
   "lng": -44.298975
   },
   "MASLS27": {
-  "lat": -2.50904,
-  "lng": -44.286864
-  },
-  "MASLS28": {
   "lat": -2.51583333333333,
   "lng": -44.2588888888889
   },
@@ -9598,10 +9570,6 @@ const coordenadas = {
   "lng": -44.2923
   },
   "MASLSL5": {
-  "lat": -2.559,
-  "lng": -44.231
-  },
-  "MASLSL6": {
   "lat": -2.51,
   "lng": -44.234
   },
@@ -11198,10 +11166,6 @@ const coordenadas = {
   "lng": -52.5428
   },
   "PAAMM1L": {
-  "lat": -1.545056,
-  "lng": -52.767361
-  },
-  "PAAMM90": {
   "lat": -1.71389,
   "lng": -53.0799
   },
@@ -12798,10 +12762,6 @@ const coordenadas = {
   "lng": -48.4580730429908
   },
   "PABLMM9": {
-  "lat": -1.428347127846177,
-  "lng": -48.46128204166335
-  },
-  "PABLMN1": {
   "lat": -1.405343219509986,
   "lng": -48.48218349933545
   },
@@ -13598,10 +13558,6 @@ const coordenadas = {
   "lng": -49.488242
   },
   "PACME02": {
-  "lat": -2.245823,
-  "lng": -49.50032
-  },
-  "PACME03": {
   "lat": -2.39265,
   "lng": -49.549681
   },
@@ -14398,10 +14354,6 @@ const coordenadas = {
   "lng": -49.12787
   },
   "PAMBA10": {
-  "lat": -5.35728,
-  "lng": -49.08262
-  },
-  "PAMBA11": {
   "lat": -5.329444,
   "lng": -49.094831
   },
@@ -15198,10 +15150,6 @@ const coordenadas = {
   "lng": -47.35972
   },
   "PAPGN21": {
-  "lat": -2.979130149,
-  "lng": -47.33682664
-  },
-  "PAPGN22": {
   "lat": -2.993861,
   "lng": -47.342583
   },
@@ -15998,10 +15946,6 @@ const coordenadas = {
   "lng": -54.69067
   },
   "PASRM17": {
-  "lat": -2.457833,
-  "lng": -54.7175
-  },
-  "PASRM18": {
   "lat": -2.4706,
   "lng": -54.72569
   },
@@ -16140,14 +16084,6 @@ const coordenadas = {
   "PASRM52": {
   "lat": -2.416,
   "lng": -54.7117
-  },
-  "PASRMI5": {
-  "lat": -2.424214,
-  "lng": -54.786531
-  },
-  "PASTM01": {
-  "lat": -2.422161,
-  "lng": -54.718107
   },
   "PASTMX1": {
   "lat": -2.421099,
@@ -16798,10 +16734,6 @@ const coordenadas = {
   "lng": -60.7103
   },
   "RRBVA08_001": {
-  "lat": 2.79813,
-  "lng": -60.705793
-  },
-  "RRBVA09": {
   "lat": 2.771778,
   "lng": -60.725722
   },
@@ -17562,10 +17494,13 @@ function gerarAcionamento() {
         const gerarLinhaCondicional = (pergunta, valor, detalhes = '') => {
             const linha = `*${pergunta}:* ${valor}`;
             if (valor === 'SIM' && detalhes) {
-                // Adiciona asteriscos em cada linha dos detalhes
+                // Remove asteriscos duplicados e formata os detalhes
                 const detalhesFormatados = detalhes.split('\n').map(linha => {
                     const [label, valor] = linha.split(':');
-                    return valor ? `*${label}:* ${valor}` : linha;
+                    if (!label || !valor) return linha;
+                    // Remove asteriscos existentes e adiciona um único par
+                    const labelLimpo = label.replace(/\*/g, '').trim();
+                    return `*${labelLimpo}:* ${valor.trim()}`;
                 }).join('\n');
                 return linha + '\n' + detalhesFormatados;
             }
@@ -17574,7 +17509,10 @@ function gerarAcionamento() {
 
         // Função auxiliar para gerar linha apenas se tiver valor
         const gerarLinhaSeValor = (label, valor) => {
-            return valor ? `*${label}:* ${valor}` : '';
+            if (!valor) return '';
+            // Remove asteriscos existentes e adiciona um único par
+            const labelLimpo = label.replace(/\*/g, '').trim();
+            return `*${labelLimpo}:* ${valor}`;
         };
 
         // Função para filtrar linhas vazias e juntar com quebras de linha
@@ -17597,13 +17535,13 @@ function gerarAcionamento() {
             gerarLinhaSeValor('UC', uc),
             dataHoraFormatada ? `*DATA HORA DO INFORME:* ${dataHoraFormatada}` : '',
             `*COLABORADOR:* ${get('colaborador')}`,
-            gerarLinhaCondicional('MÓDULO MÓVEL VANDALIZADO?', get('moduloVandalizado'), `*MÓDULO DESCRIÇÃO:* ${get('moduloDescricao')}`),
-            gerarLinhaCondicional('FIBRAS VANDALIZADAS?', get('fibrasVandalizadas'), `*COMPRIMENTOS FIBRA?* (M): ${get('comprimentoFibra')} M`),
-            gerarLinhaCondicional('CABOS VANDALIZADOS?', get('cabosVandalizados'), `*COMPRIMENTO CABOS (M):* ${get('comprimentoCabos')} METROS
-*VIAS?:* ${get('vias')} VIAS
-*TIPO CABO (MATERIAL):* ${get('tipoCabo')}`),
-            gerarLinhaCondicional('BATERIAS VANDALIZADAS?', get('bateriasVandalizadas'), `*QUANT BATERIAS:* ${get('quantBaterias')}
-*TIPO BATERIA:* ${get('tipoBateria')}`),
+            gerarLinhaCondicional('MÓDULO MÓVEL VANDALIZADO?', get('moduloVandalizado'), `MÓDULO DESCRIÇÃO: ${get('moduloDescricao')}`),
+            gerarLinhaCondicional('FIBRAS VANDALIZADAS?', get('fibrasVandalizadas'), `COMPRIMENTOS FIBRA (M): ${get('comprimentoFibra')}`),
+            gerarLinhaCondicional('CABOS VANDALIZADOS?', get('cabosVandalizados'), `COMPRIMENTO CABOS (M): ${get('comprimentoCabos')}
+VIAS: ${get('vias')}
+TIPO CABO (MATERIAL): ${get('tipoCabo')}`),
+            gerarLinhaCondicional('BATERIAS VANDALIZADAS?', get('bateriasVandalizadas'), `QUANT BATERIAS: ${get('quantBaterias')}
+TIPO BATERIA: ${get('tipoBateria')}`),
             gerarLinhaCondicional('QM VANDALIZADO?', get('qmVandalizado')),
             gerarLinhaCondicional('QDG VANDALIZADO?', get('qdgVandalizado')),
             gerarLinhaCondicional('QTM VANDALIZADO?', get('qtmVandalizado')),
