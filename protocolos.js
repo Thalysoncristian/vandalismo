@@ -53,6 +53,7 @@
                 "lng": -60.673442
             }
         };
+        
         const coords = coordenadas[site];
         let cidadeTexto = "";
         if (coords) {
